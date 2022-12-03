@@ -1,7 +1,7 @@
 const express = require('express')
 const sequelize = require('../config/db');
 
-async function readTodo(req, res) {
+async function readTodos(req, res) {
     //show all todo list
     const todos = await sequelize.models.todos.findAndCountAll();
     return res.status(200).json({ data: todos})
@@ -36,9 +36,18 @@ async function deleteTodo(req,res){
     return res.json();
 }
 
+async function readTodo(req,res){
+    const { body, params: {id}} =req;
+    const todo = await sequelize.models.todos.findByPk(id);
+    if(!todo){return res.status(404).json({ code: 404, message:'todo not found'})}
+    
+    return res.json( { data: todo });
+}
+
 module.exports = {
-    readTodo,
+    readTodos,
     createTodo,
     updateTodo,
-    deleteTodo
+    deleteTodo,
+    readTodo
 }
