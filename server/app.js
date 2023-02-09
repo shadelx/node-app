@@ -17,6 +17,6 @@ app.get('/', (req, res) => {
 
 app.use('/api', require('./routes'))
 
-app.listen(process.env.PORT || 3000, () => { 
-    console.log(`express on port 3000`)
+app.listen(process.env.PORT || 5000, () => { 
+    console.log(`express on port 5000`)
  })

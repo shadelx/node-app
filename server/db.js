@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 
 // importing models
 
-const Todo = require('../models/Todo')
+const Todo = require('./models/Todo')
 
 //database connection
 const sequelize = new Sequelize({

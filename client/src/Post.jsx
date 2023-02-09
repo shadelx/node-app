@@ -3,7 +3,12 @@ import React from 'react'
 const Post = ({post}) => {
   return (
     <div className='post'>
-        <h1>post one</h1>
+        <div>
+            <h3>{post.user}</h3>
+        </div>
+        <div>
+            <p>{post.body}</p>
+        </div>
     </div>
   )
 }
